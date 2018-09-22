@@ -10,7 +10,6 @@ print (df.getData())
 averageProcedurePrice = compute.averageProcedurePrice(df.getData())
 averageStatePrice = compute.averageStatePrice(df.getData())
 
-compute.zScoreByCategory(df.getData(), 4)
+zScores = compute.zScoreByCategory(df.getData(), 4)
 #print (averageProcedurePrice)
 #print (averageStatePrice)
-#plot.plotTest(averageProcedurePrice)

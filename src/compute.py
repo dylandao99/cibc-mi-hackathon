@@ -2,11 +2,13 @@ import pandas as pd
 from scipy import stats
 import numpy as numpy
 
+
 def averageProcedurePrice(df):
     # Extract procedure code and prices column
     extractedMatrix = df.iloc[:, 6:]
     # Calculate mean price of each procedure and return it
     return extractedMatrix.groupby([6]).mean()
+
 
 def averageStatePrice(df):
     # Extract state code, prices column
@@ -14,21 +16,22 @@ def averageStatePrice(df):
     # Calculate mean price for each state and return it
     return extractedMatrix.groupby([4]).mean()
 
+
 def zScoreByCategory(df, category):
-    #extract category, prices column
+    # Extract category, prices column
     extractedMatrix = df.iloc[:, [category, 7]]
 
-    #get groups of categories
+    # Get groups of categories
     grouped = extractedMatrix.groupby([category])
 
-    #create numpy array
-    zscore = numpy.zeros(df.shape[0]) 
+    # Create numpy array
+    zscore = numpy.zeros(df.shape[0])
 
     for name, group in grouped:
         indices = group.index.values
         zsc = stats.zscore(group[7])
-        
-        for i in range (0, len(zsc)):
+
+        for i in range(0, len(zsc)):
             zscore[indices[i]] = zsc[i]
 
-    return (zscore)
+    return zscore
