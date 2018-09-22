@@ -1,12 +1,16 @@
+# files handles reading, processing, printing, and returning data from the CSV file
 class files:
+    # When initializing, create an empty array and read the raw data into that array
     def __init__(self, directory):
-        self.data = []
-        self.readData(directory)
+        self.data = self.readData(directory)
 
+    # Fetch raw data from the CSV file and return it
     def readData(self, directory):
+        # Open in read mode
         file = open(directory, 'r')
-        self.data = file.read()
+        return file.read()
 
+    # Format the data and place it into a list of lists
     def processData(self):
         self.data = self.data.split('\n')
         length = len(self.data)
