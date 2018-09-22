@@ -2,10 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plotTest(data):
-    # plt.scatter(np.linspace(-1, 1, 50), np.random.randn(50))
-    # print data[6]
-    # print data.iloc[:, 7]
-    # plt.scatter(data.iloc[:, 6], data.iloc[:, 7])
-    # plt.show()
-    return True
+def plotTest(x, y, xlabel, ylabel):
+    plt.scatter(x, y)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.show()
