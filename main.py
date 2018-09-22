@@ -1,4 +1,4 @@
-from src import filesys, compute
+from src import filesys, compute, plot
 
 # Directory where data is located
 dataDirectory = "./sample.csv"
@@ -6,4 +6,10 @@ dataDirectory = "./sample.csv"
 
 # Initialize the files class
 df = filesys.files(dataDirectory)
-averagePrice = compute.average(df.getData())
+print (df.getData())
+averageProcedurePrice = compute.averageProcedurePrice(df.getData())
+averageStatePrice = compute.averageStatePrice(df.getData())
+
+print (averageProcedurePrice)
+print (averageStatePrice)
+plot.plotTest(averageProcedurePrice)
