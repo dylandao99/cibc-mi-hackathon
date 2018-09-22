@@ -1,9 +1,9 @@
-from src import filesys
+from src import filesys, compute
 
 # Directory where data is located
 dataDirectory = "./sample.csv"
+# dataDirectory = "../claims_final.csv"
 
 # Initialize the files class
-data = filesys.files(dataDirectory)
-data.processData()
-data.printData()
+df = filesys.files(dataDirectory)
+averagePrice = compute.average(df.getData())

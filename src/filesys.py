@@ -1,35 +1,18 @@
-# files handles reading, processing, printing, and returning data from the CSV file
+import pandas as pd
+
+
 class files:
-    # When initializing, create an empty array and read the raw data into that array
+    # When initializing, read data from a CSV file and store it
     def __init__(self, directory):
         self.data = self.readData(directory)
 
-    # Fetch raw data from the CSV file and return it
     def readData(self, directory):
-        # Open in read mode
-        file = open(directory, 'r')
-        return file.read()
+        data = pd.read_csv(directory, header=None)
+        # Format dataset as a matrix
+        return data
 
-    # Format the data and place it into a list of lists
-    def processData(self):
-        self.data = self.data.split('\n')
-        length = len(self.data)
-        for i in range(0, length):
-            self.data[i] = self.data[i].split(',')
-            string = ''
-
-            if len(self.data[i]) < 8:
-                del self.data[i]
-            else:
-                for char in range(0, len(self.data[i][4])):
-                    char = self.data[i][4][char]
-                    if char != '"':
-                        string += char
-                self.data[i][4] = string
+    def printData(self):
+        print (self.data)
 
     def getData(self):
         return self.data
-
-    def printData(self):
-        for i in range(0, len(self.data)):
-            print (self.data[i])
