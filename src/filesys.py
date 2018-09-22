@@ -23,6 +23,9 @@ class files:
                         string += char
                 self.data[i][4] = string
 
+    def getData(self):
+        return self.data
+
     def printData(self):
         for i in range(0, len(self.data)):
             print (self.data[i])
