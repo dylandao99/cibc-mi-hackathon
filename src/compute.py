@@ -32,6 +32,9 @@ def zScoreByCategory(df, category):
         zsc = stats.zscore(group[7])
 
         for i in range(0, len(zsc)):
-            zscore[indices[i]] = zsc[i]
+            if numpy.isnan(zsc[i]):
+                zscore[indices[i]] = 0
+            else:
+                zscore[indices[i]] = zsc[i]
 
     return zscore
